@@ -1,0 +1,63 @@
+{
+  "name": "@tarsilla/rollup-config",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./lib/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
+    },
+    "./library": {
+      "types": "./lib/library/index.d.ts",
+      "require": "./lib/library/index.cjs",
+      "import": "./lib/library/index.mjs",
+      "default": "./lib/library/index.mjs"
+    },
+    "./react": {
+      "types": "./lib/react/index.d.ts",
+      "require": "./lib/react/index.cjs",
+      "import": "./lib/react/index.mjs",
+      "default": "./lib/react/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/*",
+    "src/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && rollup -c",
+    "prepub": "npm run build",
+    "pub": "npm publish --access public"
+  },
+  "peerDependencies": {
+    "rollup": "^4"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-swc": "^0.4.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@tarsilla/rollup-plugin-eslint-check": "^0.0.4",
+    "@tarsilla/rollup-plugin-type-check": "^0.0.4",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "devDependencies": {
+    "@tarsilla/eslint-config": "^0.0.42",
+    "typescript": "^5.7.3"
+  }
+}
