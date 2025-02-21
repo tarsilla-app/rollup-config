@@ -19,18 +19,19 @@ function rollupLibraryConfig({
   extensions = ['.js', '.ts', '.json'],
   external,
 }: RollupLibraryConfigOptions = {}): RollupOptions[] {
+  const _folder = folder.trim().length >= 0 ? `${folder}/` : folder;
   return [
     {
-      input: `src/${folder}index.ts`,
+      input: `src/${_folder}index.ts`,
       output: [
         {
-          file: `lib/${folder}index.cjs`,
+          file: `lib/${_folder}index.cjs`,
           format: 'cjs',
           sourcemap: true,
           exports: 'auto',
         },
         {
-          file: `lib/${folder}index.mjs`,
+          file: `lib/${_folder}index.mjs`,
           format: 'esm',
           sourcemap: true,
           exports: 'auto',
@@ -47,7 +48,6 @@ function rollupLibraryConfig({
           jsc: {
             parser: {
               syntax: 'typescript',
-              tsx: true,
             },
           },
         }),
@@ -55,8 +55,8 @@ function rollupLibraryConfig({
       ],
     },
     {
-      input: `./src/${folder}index.ts`,
-      output: [{ file: `./lib/${folder}index.d.ts`, format: 'esm' }],
+      input: `./src/${_folder}index.ts`,
+      output: [{ file: `./lib/${_folder}index.d.ts`, format: 'esm' }],
       external,
       plugins: [dts()],
     },
