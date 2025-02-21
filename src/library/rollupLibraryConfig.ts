@@ -19,7 +19,7 @@ function rollupLibraryConfig({
   extensions = ['.js', '.ts', '.json'],
   external,
 }: RollupLibraryConfigOptions = {}): RollupOptions[] {
-  const _folder = folder.trim().length >= 0 ? `${folder}/` : folder;
+  const _folder = folder.trim().length > 0 ? `${folder}/` : folder;
   return [
     {
       input: `src/${_folder}index.ts`,

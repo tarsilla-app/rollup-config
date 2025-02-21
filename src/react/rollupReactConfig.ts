@@ -21,7 +21,7 @@ function rollupReactConfig({
   extensions = ['.js', '.jsx', '.ts', '.tsx', '.json'],
   external,
 }: RollupReactConfigOptions = {}): RollupOptions[] {
-  const _folder = folder.trim().length >= 0 ? `${folder}/` : folder;
+  const _folder = folder.trim().length > 0 ? `${folder}/` : folder;
   return [
     {
       input: `src/${_folder}index.ts`,
