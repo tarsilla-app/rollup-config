@@ -3,8 +3,8 @@ import inject from '@rollup/plugin-inject';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-swc';
 import terser from '@rollup/plugin-terser';
-//import { eslintCheck } from '@tarsilla/rollup-plugin-eslint-check';
-//import { typeCheck } from '@tarsilla/rollup-plugin-type-check';
+import { eslintCheck } from '@tarsilla/rollup-plugin-eslint-check';
+import { typeCheck } from '@tarsilla/rollup-plugin-type-check';
 import { RollupOptions } from 'rollup';
 import { dts } from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -44,8 +44,8 @@ function rollupReactConfig({
         peerDepsExternal({ includeDependencies: true }),
         nodeResolve({ extensions }),
         commonjs(),
-        //typeCheck(),
-        //eslintCheck(),
+        typeCheck(),
+        eslintCheck(),
         typescript({
           jsc: {
             parser: {
