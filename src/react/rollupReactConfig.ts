@@ -14,12 +14,14 @@ type RollupReactConfigOptions = {
   folder?: string;
   extensions?: string[];
   external?: string[];
+  paths?: Record<string, string[]>;
 };
 
 function rollupReactConfig({
   folder = '',
   extensions = ['.js', '.jsx', '.ts', '.tsx', '.json'],
   external,
+  paths,
 }: RollupReactConfigOptions = {}): RollupOptions[] {
   const _folder = folder.trim().length > 0 ? `${folder}/` : folder;
   return [
@@ -57,6 +59,7 @@ function rollupReactConfig({
                 runtime: 'automatic',
               },
             },
+            paths,
           },
         }),
         inject({
@@ -70,7 +73,7 @@ function rollupReactConfig({
       input: `./src/${_folder}index.ts`,
       output: [{ file: `./lib/${_folder}index.d.ts`, format: 'esm' }],
       external,
-      plugins: [dts()],
+      plugins: [dts({ compilerOptions: { paths } })],
     },
   ];
 }

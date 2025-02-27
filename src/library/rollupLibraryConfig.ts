@@ -12,12 +12,14 @@ type RollupLibraryConfigOptions = {
   folder?: string;
   extensions?: string[];
   external?: string[];
+  paths?: Record<string, string[]>;
 };
 
 function rollupLibraryConfig({
   folder = '',
   extensions = ['.js', '.ts', '.json'],
   external,
+  paths,
 }: RollupLibraryConfigOptions = {}): RollupOptions[] {
   const _folder = folder.trim().length > 0 ? `${folder}/` : folder;
   return [
@@ -49,6 +51,7 @@ function rollupLibraryConfig({
             parser: {
               syntax: 'typescript',
             },
+            paths,
           },
         }),
         terser(),
@@ -58,7 +61,7 @@ function rollupLibraryConfig({
       input: `./src/${_folder}index.ts`,
       output: [{ file: `./lib/${_folder}index.d.ts`, format: 'esm' }],
       external,
-      plugins: [dts()],
+      plugins: [dts({ compilerOptions: { paths } })],
     },
   ];
 }
