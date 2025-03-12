@@ -2,10 +2,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-swc';
 import terser from '@rollup/plugin-terser';
-import { eslintCheck } from '@tarsilla/rollup-plugin-eslint-check';
-import { typeCheck } from '@tarsilla/rollup-plugin-type-check';
 import { dts } from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+
+import { eslintCheck } from '@tarsilla/rollup-plugin-eslint-check';
+import { typeCheck } from '@tarsilla/rollup-plugin-type-check';
 
 function build({ folder = '' } = {}) {
   const _folder = folder.trim().length > 0 ? `${folder}/` : folder;

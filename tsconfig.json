@@ -10,7 +10,5 @@
     "noEmit": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
-  },
-  "exclude": ["lib"]
+  }
 }
