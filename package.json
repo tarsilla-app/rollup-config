@@ -55,24 +55,16 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-swc": "^0.4.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@tarsilla/rollup-plugin-eslint-check": "^0.0.8",
-    "@tarsilla/rollup-plugin-type-check": "^0.0.8",
-    "rollup-plugin-dts": "^6.1.1",
+    "@tarsilla/rollup-plugin-eslint-check": "^1.0.2",
+    "@tarsilla/rollup-plugin-type-check": "^1.0.3",
+    "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^12.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.3",
-    "@tarsilla/eslint-config": "^0.2.2",
-    "cz-conventional-changelog": "^3.3.0",
+    "@tarsilla/commit-wizard": "^1.0.5",
+    "@tarsilla/eslint-config": "^1.0.5",
     "husky": "^9.1.7",
-    "semantic-release": "^24.2.3",
     "typescript": "^5.8.2"
   }
 }
